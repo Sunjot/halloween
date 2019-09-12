@@ -1,0 +1,201 @@
+@mixin flex($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+$xs-width: 320px;
+$md-width: 600px;
+
+@mixin xs {
+	@media (min-width: #{$xs-width}) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (min-width: #{$md-width}) {
+		@content;
+	}
+}
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Questrial|Titillium+Web:700|Squada+One');  
+  
+html, body {
+	@include flex(column, flex-start, center);
+	margin: 0;
+	padding: 0;
+	background-color: #e68a00;
+}
+
+#topsecret {
+	position: fixed;
+	right: 5px;
+	top: 5px;
+	width: 20px;
+	height: 20px;
+}
+
+#app-wrap {
+	@include flex(column, flex-start, center);
+	margin: 40 10 10 10;
+
+	@include xs {
+		width: 300px;
+	}
+
+	@include md {
+		width: 550px;
+	}
+
+	#title {
+		font-family: 'Squada One';
+		margin: 0 0 20 0;
+		color: #292929;
+
+		@include xs {
+			font-size: 30px;
+		}
+
+		@include md {
+			font-size: 40px;
+		}
+	}
+
+	input[type=text] {
+		margin: 5px;
+		border-radius: none;
+		border-width: 0;
+		border-radius: 2px;
+		padding: 0 0 0 5px;
+		font-family: 'Questrial';
+		background-color: #ededed;
+
+		@include xs {
+			width: 200px;
+			height: 20px;
+			font-size: 14px;
+		}
+
+		@include md {
+			width: 400px;
+			height: 40px;
+			font-size: 20px;
+		}
+	}
+
+	#plusone {
+		@include flex(column, flex-start, flex-start);
+		font-family: 'Questrial';
+		margin: 15 0 0 0;
+		color: #292929;
+
+		@include xs {
+			font-size: 16px;
+		}
+
+		@include md {
+			font-size: 20px;
+		}
+		
+		#radios {
+			@include flex(row, flex-start, flex-start);
+			margin: 10 0 0 0;
+
+			input[type=radio] {
+				width: 20px;
+			}
+		}
+	}
+
+	textarea {
+		margin: 20 0 0 0;
+		font-family: 'Questrial';
+		border-width: 0;
+		border: none;
+		border-radius: 2px;
+		padding: 5px;
+		background-color: #ededed;
+
+		@include xs {
+			font-size: 14px;
+			width: 300px;
+		}
+
+		@include md {
+			font-size: 20px;
+			width: 550px;
+		}
+	}
+
+	#button {
+		font-family: 'Squada One';
+		margin: 15px;
+		background-color: #ededed;
+		border-radius: 2px;
+		color: #292929;
+		cursor: pointer;
+		transition: background-color 0.5s;
+
+		@include xs {
+			padding: 5 10 5 10;
+			font-size: 16px;
+		}
+
+		@include md {
+			padding: 8 15 8 15;
+			font-size: 20px;
+		}
+
+		&:hover {
+		background-color: #ded7d7;
+		}
+	}
+
+	#error {
+		font-family: 'Squada One';
+
+		@include xs {
+			font-size: 16px;
+		}
+
+		@include md {
+			font-size: 20px;
+		}
+	}
+
+	#thanks {
+		font-family: 'Squada One';
+
+		@include xs {
+			font-size: 16px;
+		}
+
+		@include md {
+			font-size: 30px;
+		}
+	}
+
+	img {
+		margin: 20px;
+
+		@include xs {
+			width: 300px;
+		}
+
+		@include md {
+			width: auto;
+		}
+	}
+
+	#list {
+		@include flex(column, flex-start, center);
+
+		.row {
+			font-family: 'Questrial';
+			font-size: 20px;
+			margin: 5px;
+		}
+	}
+}
